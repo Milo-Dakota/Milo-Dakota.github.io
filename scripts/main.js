@@ -70,8 +70,16 @@ function simulate(i,j,k,l,player){
 					if(map[i][j][ck][cl]==player){
 						return 1
 					}
+					else{continue}
 				}
-				else{continue}
+				else{
+					ck=k-moves[x][0]
+					cl=l-moves[x][1]
+					if(map[i][j][ck][cl]==player){
+						return 1
+					}
+					else{continue}
+				}
 			}
 			else{continue}
 		}
@@ -96,6 +104,8 @@ function mouseclick(event){
 						if(next_state[0]==-1 || (next_state[0]==i && next_state[1]==j)){
 							if(map[i][j][k][l]==0){
 								map[i][j][k][l]=player
+								if(simulate(i,j,k,l,player)){state_captured[i][j]=player}
+								player=-player
 								if(state_captured[k][l]!=0){
 									next_state[0]=-1
 									next_state[1]=-1
@@ -104,8 +114,6 @@ function mouseclick(event){
 									next_state[0]=k
 									next_state[1]=l
 								}
-								if(simulate(i,j,k,l,player)){state_captured[i][j]=player}
-								player=-player
 							}
 						}
 						draw_map(mouse_pos)
