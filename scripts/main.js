@@ -125,5 +125,6 @@ function mouseclick(event){
 	}
 }
 
+draw_map([-1,-1])
 canvas.addEventListener('mousemove',function(event){mousemove(event)})
 canvas.addEventListener('mousedown',function(event){mouseclick(event)})
