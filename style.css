@@ -1,0 +1,48 @@
+html {
+    font-family: sans-serif;
+}
+
+h1 {
+	font-size: 50px;
+}
+
+h2 {
+	font-size: 40px;
+}
+
+h3 {
+	font-size: 30px;
+}
+
+h4 {
+	font-size: 20px;
+}
+
+p {
+	font-size: 30px;
+}
+
+img {
+	display: block;
+	margin: 0 auto;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	transition: letter-spacing 0.5s;
+}
+
+.pa:hover {
+	letter-spacing: 1.2em;
+}
+
+canvas {
+	display: block;
+	margin: 0 auto;
+}
+
+.text-center {
+	text-align: center;
+	margin: 1em auto;
+}
