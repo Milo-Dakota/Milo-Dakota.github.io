@@ -34,7 +34,7 @@ a {
 }
 
 .pa:hover {
-	letter-spacing: 1.2em;
+	letter-spacing: 0.5em;
 }
 
 canvas {
@@ -45,4 +45,44 @@ canvas {
 .text-center {
 	text-align: center;
 	margin: 1em auto;
+}
+
+pre {
+	font-size: 15px;
+}
+
+.codebox {
+	font-size: 15px;
+	display: block;
+	margin: 0 auto;
+	width: 300px;
+	padding: 1em;
+	background-color: rgb(225,225,225);
+}
+
+.top {
+    border-bottom: 1px solid;
+    position: relative;
+    width: 100%;
+}
+
+button {
+    background-color: white;
+    box-shadow: 2px 2px teal;
+    color: teal;
+    font-family: Quicksand, serif;
+    padding: 10px 30px;
+    margin: 5px;
+    font-size: 24px;
+    border: 0;
+    border-width: 0 !important;
+    outline: none !important;
+    transition: all .2s ease-in-out;
+    white-space: nowrap;
+    border-radius: 0;
+}
+
+button.big {
+    padding: 10px 50px;
+    font-size: 32px;
 }
