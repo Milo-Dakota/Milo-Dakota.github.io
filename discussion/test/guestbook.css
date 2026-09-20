@@ -1,0 +1,69 @@
+.guestbook-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 38px;
+  align-items: start;
+}
+.guestbook-page .intro-sticker { background: #e6dfef; border-color: #a69ab7; }
+.postcard {
+  position: relative;
+  background: #f7e5d4;
+  border: 1px solid #dfc7b1;
+  padding: 30px 23px 23px;
+  transform: rotate(-2deg);
+  box-shadow: 3px 5px 0 #e6dece;
+}
+.postcard h2 { font-size: 23px; margin: 29px 0 18px; }
+.postcard p { font-size: 12px; line-height: 2; color: #887360; }
+.postcard-stamp {
+  position: absolute;
+  right: 15px;
+  top: 14px;
+  border: 2px dotted #b09373;
+  padding: 5px 9px;
+  color: #a3855a;
+  text-align: center;
+  font-size: 26px;
+  transform: rotate(8deg);
+}
+.postcard-stamp small { display: block; font: 8px Consolas, monospace; }
+.postcard-signature { display: block; text-align: right; font: 19px var(--hand); color: #916c57; margin-top: 15px; }
+.prompt-card { padding: 27px 14px 4px; }
+.prompt-card .section-kicker { font-size: 8px; }
+.prompt-card h2 { font-size: 17px; margin: 13px 0; }
+.prompt-card p { font-size: 12px; color: #7f7689; line-height: 1.9; min-height: 46px; }
+.prompt-button { border: 0; border-bottom: 1px dashed #b6a5ce; padding: 7px 0; color: var(--purple); background: none; font-size: 12px; }
+.message-paper {
+  position: relative;
+  background: #fffefa;
+  border: 1px solid #dfdacd;
+  border-radius: 3px 3px 12px 12px;
+  padding: 34px 30px 22px;
+  min-height: 470px;
+  box-shadow: 4px 5px 0 #ece7da;
+}
+.paper-tape { position: absolute; top: -12px; left: calc(50% - 45px); width: 90px; height: 25px; background: #c9bfdf9c; transform: rotate(3deg); }
+.message-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.message-heading h2 { font-size: 25px; margin-top: 12px; }
+.message-heading h2 > span { color: var(--purple); }
+.open-badge { white-space: nowrap; border: 1px solid #c5d1b6; background: #edf2e5; color: #778565; padding: 6px 10px; font-size: 10px; border-radius: 20px; }
+.comment-intro { font-size: 12px; color: #928879; padding: 15px 0 22px; border-bottom: 1px dashed #dbd4c5; margin-bottom: 25px; }
+.giscus { min-height: 160px; }
+.giscus-frame { width: 100%; border: 0; }
+.comment-help { font-size: 11px; line-height: 1.9; color: #938877; border-top: 1px solid #eee8dc; padding-top: 17px; }
+.comment-help a { color: var(--purple); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 800px) {
+  .guestbook-layout { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+  .guestbook-sidebar { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .guestbook-sidebar .side-scribble { display: none; }
+  .message-paper { padding: 28px 20px 18px; }
+}
+@media (max-width: 480px) {
+  .guestbook-sidebar { grid-template-columns: 1fr; }
+  .postcard { padding: 24px; }
+  .postcard p { display: inline-block; margin-right: 10px; }
+  .prompt-card { padding: 8px 7px; }
+  .message-heading h2 { font-size: 22px; }
+  .message-heading .section-kicker { font-size: 8px; letter-spacing: 1px; }
+  .open-badge { font-size: 9px; padding: 5px 7px; }
+}

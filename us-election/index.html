@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5ee">
+  <title>US Election · Milo 的桌面游乐场</title>
+  <link rel="icon" href="../images/icon.ico">
+  <link rel="stylesheet" href="../assets/css/subpages.css">
+  <link rel="stylesheet" href="game.css">
+  <script src="main.js" defer></script>
+</head>
+<body class="game-page">
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="wordmark" href="../index.html"><span class="brand-star" aria-hidden="true">✳</span> milo<span class="wordmark-dot">.</span></a>
+      <nav aria-label="主导航"><a href="../index.html">← 回到小宇宙</a><a href="../discussion/test/index.html">留个脚印 ↗</a></nav>
+    </header>
+    <main>
+      <section class="page-intro">
+        <span class="section-kicker">THE PLAYGROUND / 01</span>
+        <h1>小小棋盘，<span>大大野心。</span></h1>
+        <p>US Election — Win the states. Win the election.</p>
+        <span class="intro-sticker" aria-hidden="true">ONE MORE<br>ROUND! ✷</span>
+      </section>
+      <div class="game-layout">
+        <section class="game-machine" aria-labelledby="game-title">
+          <div class="machine-top"><h2 id="game-title">US ELECTION</h2><span>LOCAL MULTIPLAYER · 2P</span></div>
+          <div class="turn-banner" id="turn-status" role="status" aria-live="polite">✕ 紫色方先行 · 任选一个空格</div>
+          <div class="board-wrap"><canvas id="screen" width="750" height="750" aria-label="双人九宫格棋盘，可用方向键移动、空格或回车落子" tabindex="0">浏览器需要支持 Canvas 才能显示棋盘。</canvas></div>
+          <div class="machine-bottom"><span id="move-count">ROUND 01 · 0 步</span><button class="button" id="restart" type="button">↻ 重新开局</button></div>
+        </section>
+        <aside class="game-sidebar">
+          <section class="score-card"><span class="section-kicker">THE CANDIDATES</span><h2>今天，你站哪边？</h2><div class="player-score purple-player" id="player-one"><span class="player-symbol">✕</span><span>紫色梦想家<small>PLAYER 01</small></span><strong id="score-one">0</strong></div><div class="player-score green-player" id="player-two"><span class="player-symbol">○</span><span>绿色行动派<small>PLAYER 02</small></span><strong id="score-two">0</strong></div><p>右侧数字 = 已拿下的州</p></section>
+          <section class="rules-card"><span class="section-kicker">HOW TO PLAY</span><h2>三分钟上手 <span aria-hidden="true">↴</span></h2><ol><li><b>叫上一个朋友。</b>两个人轮流在同一台设备落子。</li><li><b>先赢小棋盘。</b>在一个州内连成一条三子直线，就能拿下这个州。</li><li><b>下一站由你决定。</b>你落子的小格位置，就是对手下一步要去的州；若那里已结束，对手可自由选择。</li></ol><p class="rule-note">亮色区域可以落子。州内满格未连线算平局；九州结束后，占州更多的一方获胜。<br>键盘也能玩：方向键移动，回车 / 空格落子。</p></section>
+          <p class="side-scribble">友情第一，<br>再来一局第二。 ✧</p>
+        </aside>
+      </div>
+      <noscript><p class="no-script">开启 JavaScript 后就可以开始游戏。</p></noscript>
+    </main>
+    <footer class="site-footer"><span>Milo Dakota / little experiments</span><span>一点策略，一点运气，很多快乐。 ✳</span><a href="../index.html">回家 ↗</a></footer>
+  </div>
+</body>
+</html>

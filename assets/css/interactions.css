@@ -1,0 +1,63 @@
+/* Optional interactions;
+layout does not depend on JavaScript. */
+.skip-link {
+  position:fixed;
+  top:-100px;
+  left:16px;
+  padding:12px 18px;
+  background:#fff;
+  z-index:20;
+  border:2px solid var(--purple)
+}
+.skip-link:focus {
+  top:12px
+}
+.toast {
+  position:fixed;
+  bottom:28px;
+  left:50%;
+  transform:translate(-50%,16px);
+  opacity:0;
+  visibility:hidden;
+  max-width:calc(100% - 32px);
+  width:max-content;
+  padding:14px 23px;
+  border:1px solid #c9bcdf;
+  border-radius:9px;
+  background:#fffdf7;
+  box-shadow:0 5px 25px #302b3b15;
+  color:#655182;
+  font-size:13px;
+  z-index:30;
+  transition:opacity .2s,transform .2s,visibility .2s;
+  pointer-events:none
+}
+.toast.is-visible {
+  opacity:1;
+  visibility:visible;
+  transform:translate(-50%,0)
+}
+.confetti-layer {
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:25
+}
+.confetti {
+  position:absolute;
+  font-size:22px;
+  animation:scatter 950ms ease-out forwards;
+  color:var(--confetti-color)
+}
+@keyframes scatter {
+  from {
+    transform:translate(0,0) rotate(0);
+    opacity:1
+  }
+  to {
+    transform:translate(var(--drift-x),var(--drift-y)) rotate(var(--spin));
+    opacity:0
+  }
+
+}

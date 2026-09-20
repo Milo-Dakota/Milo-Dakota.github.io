@@ -1,0 +1,88 @@
+html {
+    font-family: sans-serif;
+}
+
+h1 {
+	font-size: 50px;
+}
+
+h2 {
+	font-size: 40px;
+}
+
+h3 {
+	font-size: 30px;
+}
+
+h4 {
+	font-size: 20px;
+}
+
+p {
+	font-size: 30px;
+}
+
+img {
+	display: block;
+	margin: 0 auto;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	transition: letter-spacing 0.5s;
+}
+
+.pa:hover {
+	letter-spacing: 0.5em;
+}
+
+canvas {
+	display: block;
+	margin: 0 auto;
+}
+
+.text-center {
+	text-align: center;
+	margin: 1em auto;
+}
+
+pre {
+	font-size: 15px;
+}
+
+.codebox {
+	font-size: 15px;
+	display: block;
+	margin: 0 auto;
+	width: 300px;
+	padding: 1em;
+	background-color: rgb(225,225,225);
+}
+
+.top {
+    border-bottom: 1px solid;
+    position: relative;
+    width: 100%;
+}
+
+button {
+    background-color: white;
+    box-shadow: 2px 2px teal;
+    color: teal;
+    font-family: Quicksand, serif;
+    padding: 10px 30px;
+    margin: 5px;
+    font-size: 24px;
+    border: 0;
+    border-width: 0 !important;
+    outline: none !important;
+    transition: all .2s ease-in-out;
+    white-space: nowrap;
+    border-radius: 0;
+}
+
+button.big {
+    padding: 10px 50px;
+    font-size: 32px;
+}

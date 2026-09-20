@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5ee">
+  <title>路过，留句话 · Milo 的留言板</title>
+  <link rel="icon" href="../../images/icon.ico">
+  <link rel="stylesheet" href="../../assets/css/subpages.css">
+  <link rel="stylesheet" href="guestbook.css">
+  <script src="guestbook.js" defer></script>
+</head>
+<body class="guestbook-page">
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="wordmark" href="../../index.html"><span class="brand-star" aria-hidden="true">✳</span> milo<span class="wordmark-dot">.</span></a>
+      <nav aria-label="主导航"><a href="../../index.html">← 回到小宇宙</a><a href="../../us-election/index.html">去玩一局 ↗</a></nav>
+    </header>
+    <main>
+      <section class="page-intro">
+        <span class="section-kicker">THE GUESTBOOK / LEAVE A LITTLE HELLO</span>
+        <h1>路过，<span>留句话。</span></h1>
+        <p>互联网那么大，能在这里碰见，真好。</p>
+        <span class="intro-sticker" aria-hidden="true">YOU WERE<br>HERE! ♡</span>
+      </section>
+      <div class="guestbook-layout">
+        <aside class="guestbook-sidebar">
+          <section class="postcard"><span class="postcard-stamp" aria-hidden="true">✿<small>HELLO</small></span><span class="section-kicker">A NOTE FOR YOU</span><h2>嗨，陌生人！</h2><p>这里没有标准答案，<br>也不需要一本正经。</p><p>一句问候、一个奇怪的想法，<br>或者今天的小小开心，<br>都欢迎放在这里。</p><span class="postcard-signature">— Milo ☺</span></section>
+          <section class="prompt-card"><span class="section-kicker">NEED A LITTLE INSPIRATION?</span><h2>不知道说什么？</h2><p id="writing-prompt">最近有什么小事，让你突然觉得生活还不错？</p><button id="shuffle-prompt" class="prompt-button" type="button" hidden>↻ 换一个话题</button></section>
+          <p class="side-scribble">把一句话留在这里，<br>像在窗台放一朵花。 ✿</p>
+        </aside>
+        <section class="message-paper" aria-labelledby="messages-title">
+          <div class="paper-tape" aria-hidden="true"></div>
+          <div class="message-heading"><div><span class="section-kicker">LITTLE WORDS, GOOD COMPANY</span><h2 id="messages-title">脚印收集处 <span aria-hidden="true">↘</span></h2></div><span class="open-badge">欢迎闲聊</span></div>
+          <p class="comment-intro">用 GitHub 登录就能留言。友善一点，随意一点。</p>
+          <div class="giscus"></div>
+          <p class="comment-help" id="comment-help">评论正在赶来的路上… 如果没有显示，可以<a href="https://github.com/milo-dakota/giscus-test/discussions" target="_blank" rel="noopener noreferrer">去 GitHub 留言 ↗</a></p>
+          <noscript><p>评论需要 JavaScript；也可以通过上方链接访问 GitHub 讨论区。</p></noscript>
+          <script src="https://giscus.app/client.js"
+            data-repo="milo-dakota/giscus-test"
+            data-repo-id="R_kgDOLdAlXQ"
+            data-category="Show and tell"
+            data-category-id="DIC_kwDOLdAlXc4CdynU"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="light"
+            data-lang="zh-CN"
+            crossorigin="anonymous"
+            async>
+          </script>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer"><span>Milo Dakota / internet guestbook</span><span>谢谢你，为这个小角落添了一点热闹。 ♡</span><a href="../../index.html">回家 ↗</a></footer>
+  </div>
+</body>
+</html>
