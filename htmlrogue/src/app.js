@@ -1,8 +1,10 @@
 import { createState } from './engine/state.js';
 import * as game from './engine/game.js';
 import { render } from './ui/render.js';
+import { mountFormulaReference } from './ui/encounter-view.js';
 import { $ } from './ui/dom.js';
 
+mountFormulaReference();
 let state = createState();
 function update(operation, ...args) {
   const oldPhase = state.phase;
@@ -13,11 +15,12 @@ function update(operation, ...args) {
     $('#reward-section').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     $('#rewards button')?.focus({ preventScroll: true });
   }
-  if (['won', 'lost'].includes(state.phase) && oldPhase !== state.phase) $('#encounter-title').focus();
+  if (state.phase === 'lost' && oldPhase !== state.phase) $('#encounter-title').focus();
   if (state.phase === 'ready' && oldPhase === 'reward') $('#next-floor').focus({ preventScroll: true });
   return true;
 }
 const actions = {
+  configure: (id, value) => update(game.configure, id, value),
   act: (id, value) => update(game.act, id, value),
   endTurn: () => update(game.endTurn),
   chooseReward: (id, target) => update(game.chooseReward, id, target),

@@ -1,22 +1,48 @@
-export const ENEMIES = [
-  { name: '失效的链接', code: '404', tag: '<a href="/somewhere">', hp: 6, damage: 2, description: '这个链接没有通向任何地方。但它仍在占用你的页面。' },
-  { name: '重复提交', code: '409', tag: '<form data-conflict>', hp: 19, damage: 4, description: '同一份请求被发送了两次。偶数回合反击额外 +2。', behavior: 'double' },
-  { name: '样式冲突', code: 'CSS', tag: '<style !important>', hp: 27, damage: 5, description: '顽固的覆盖样式。每回合开始时获得 3 点护盾。', behavior: 'armor' },
-  { name: '内存泄漏', code: 'OOM', tag: '<section data-leak>', hp: 34, damage: 4, description: '每过一回合，反击伤害就会增加 2。尽快处理。', behavior: 'leak' },
-  { name: '请求超时', code: '408', tag: '<script async>', hp: 40, damage: 6, description: '每三个回合发起一次 11 点的超时反击。', behavior: 'timeout' },
-  { name: '无限循环', code: '∞', tag: '<main while="true">', hp: 56, damage: 7, description: '最后一个敌对进程。每回合获得 3 护盾，反击每回合 +1。', behavior: 'boss' },
+import { enemyIdentity } from './enemy-names.js';
+
+export const MECHANISMS = ['growth', 'shield'];
+export const FORMULAS = [
+  '生命 H(n) = 6 + 8 × (n − 1)',
+  '基础攻击 A(n) = 2 + ⌊(n − 1) / 2⌋',
+  '攻击成长 G(n) = 1 + ⌊(n − 1) / 6⌋',
+  '刷新护盾 S(n) = 1 + ⌊(n − 1) / 4⌋',
 ];
 
-export function makeEnemy(floor) {
-  const def = ENEMIES[floor - 1];
-  return { ...def, maxHp: def.hp, armor: ['armor', 'boss'].includes(def.behavior) ? 3 : 0 };
+export function enemyStats(floor) {
+  if (!Number.isSafeInteger(floor) || floor < 1) throw new RangeError('Floor must be a positive safe integer');
+  return { hp: 6 + 8 * (floor - 1), damage: 2 + Math.floor((floor - 1) / 2),
+    growth: 1 + Math.floor((floor - 1) / 6), shield: 1 + Math.floor((floor - 1) / 4) };
 }
 
-export function enemyIntent(state) {
-  const { enemy, turn } = state;
-  if (enemy.behavior === 'double') return enemy.damage + (turn % 2 === 0 ? 2 : 0);
-  if (enemy.behavior === 'leak') return enemy.damage + (turn - 1) * 2;
-  if (enemy.behavior === 'timeout') return turn % 3 === 0 ? 11 : enemy.damage;
-  if (enemy.behavior === 'boss') return enemy.damage + turn - 1;
-  return enemy.damage;
+// A separate deterministic stream keeps previews stable regardless of reward rolls.
+function floorHash(seed, floor) {
+  let value = (seed ^ Math.imul(floor, 0x9e3779b9)) >>> 0;
+  value = Math.imul(value ^ (value >>> 16), 0x85ebca6b);
+  value = Math.imul(value ^ (value >>> 13), 0xc2b2ae35);
+  return (value ^ (value >>> 16)) >>> 0;
+}
+
+export function makeEnemy(floor, seed = 0, mechanism) {
+  const variant = floorHash(seed, floor);
+  mechanism ??= MECHANISMS[variant % MECHANISMS.length];
+  if (!MECHANISMS.includes(mechanism)) throw new RangeError('Unknown enemy mechanism');
+  const stats = enemyStats(floor);
+  return { ...enemyIdentity(floor, mechanism, variant >>> 1), floor, mechanism,
+    hp: stats.hp, maxHp: stats.hp, damage: stats.damage,
+    magnitude: mechanism === 'growth' ? stats.growth : stats.shield,
+    armor: mechanism === 'shield' ? stats.shield : 0, corrosion: 0 };
+}
+
+export function mechanismText(enemy) {
+  return enemy.mechanism === 'growth'
+    ? `攻击成长：每回合攻击 +${enemy.magnitude}，首回合从 ${enemy.damage} 开始。`
+    : `刷新护盾：开战及每回合开始时，护盾重置为 ${enemy.magnitude}，不累积。`;
+}
+
+export function enemyIntent({ enemy, turn }) {
+  return enemy.damage + (enemy.mechanism === 'growth' ? (turn - 1) * enemy.magnitude : 0);
+}
+
+export function refreshEnemy(enemy) {
+  enemy.armor = enemy.mechanism === 'shield' ? enemy.magnitude : 0;
 }

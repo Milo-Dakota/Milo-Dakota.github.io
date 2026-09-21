@@ -14,24 +14,25 @@
 <body>
   <header class="masthead"><a class="brand" href="./">↗ 活页<span>A PAGE WITH A PULSE</span></a><span class="edition">可游玩的网页实验 · NO. 001</span><button id="restart" class="text-button">重新开始 ↻</button></header>
   <main>
-    <section class="intro"><div class="eyebrow">AN INTERACTIVE DOCUMENT / 一次网页探险</div><h1>从一个按钮，<br>到一整台<span>网页机器。</span></h1><p>点击、切换、连接。把这个网页，构筑成你的通关方式。</p><div class="intro-note"><span class="status-dot"></span> 无需写代码。这里的每一个控件，都真的可以玩。</div></section>
-    <nav id="route" class="route" aria-label="六层探索进度"></nav>
+    <section class="intro"><div class="eyebrow">AN INTERACTIVE DOCUMENT / 双资源 · 无尽网页探险</div><h1>从一份输入，<br>到一整台<span>网页机器。</span></h1><p>点击、切换、连接。把这个网页，构筑成你的探索方式。</p><div class="intro-note"><span class="status-dot"></span> 无需写代码。这里的每一个控件，都真的可以玩。</div></section>
+    <nav id="route" class="route" aria-label="无尽探索进度"></nav>
     <div class="workspace">
       <div class="document-column">
         <section class="document-section" aria-labelledby="encounter-title"><div class="section-heading"><span class="section-index">01 / 当前页面</span><span id="floor-label" class="mono"></span></div><div id="encounter"></div></section>
         <section class="document-section" aria-labelledby="machine-title"><div class="section-heading"><h2 id="machine-title">02 / 我的网页</h2><span id="node-count" class="mono"></span></div><div class="machine-caption"><span>这些元素，就是你这一局的构筑。</span><span class="tag">&lt;main&gt;</span></div><div id="nodes" class="nodes"></div><div id="turn-bar" class="turn-bar"></div></section>
-        <section id="reward-section" class="document-section rewards-section" hidden><div class="section-heading"><h2>页面已清理，保留一项改动。</h2><span class="mono">CHOOSE 01</span></div><p class="section-description">新元素会直接长在网页上。每层恢复 4 点完整度。</p><div id="rewards" class="rewards"></div><div id="reward-target"></div></section>
-        <section class="document-section connections-section"><div class="section-heading"><h2>03 / 事件连接</h2><span id="wire-count" class="mono"></span></div><p class="section-description">一个动作，带动另一个元素。连接产生的动作不消耗操作点。</p><div id="connections"></div><form id="wire-form" class="wire-form" hidden><label>当这个元素变化<select id="wire-source" aria-label="连接起点"></select></label><span class="wire-arrow" aria-hidden="true">→</span><label>自动点击<select id="wire-target" aria-label="连接终点"></select></label><button type="submit">建立连接 ↗</button></form><p id="wire-help" class="fine-print"></p></section>
+        <section id="reward-section" class="document-section rewards-section" hidden><div class="section-heading"><h2>页面已清理，保留一项改动。</h2><span class="mono">CHOOSE 01</span></div><p class="section-description">新元素会直接长在网页上。每层恢复 4 点完整度。</p><div id="forecast" class="forecast"></div><div id="rewards" class="rewards"></div><div id="reward-target"></div></section>
+        <section class="document-section connections-section"><div class="section-heading"><h2>03 / 事件连接</h2><span id="wire-count" class="mono"></span></div><p class="section-description">一个动作，带动另一个元素。每一步都支付资源，自动执行一段工作流。</p><div id="connections"></div><form id="wire-form" class="wire-form" hidden><label>当这个控件执行<select id="wire-source" aria-label="连接起点"></select></label><span class="wire-arrow" aria-hidden="true">→</span><label>接着执行<select id="wire-target" aria-label="连接终点"></select></label><button type="submit">建立连接 ↗</button></form><p id="wire-help" class="fine-print"></p></section>
       </div>
       <aside>
         <section class="system-section"><div class="section-heading"><h2>页面状态</h2><span class="status-dot"></span></div><div id="system"></div></section>
+        <details id="formula-reference" class="guide formula-reference"></details>
         <section class="trace-section"><div class="section-heading"><h2>事件回声</h2><span class="mono">LIVE</span></div><p>你的每一步，都有迹可循。</p><ol id="trace" class="trace" aria-live="polite" aria-relevant="additions"></ol></section>
-        <details class="guide" open><summary>第一次来？从这里开始</summary><ol><li>点击「攻击」，清理当前页面。每个按钮每回合只能手动点一次。</li><li>每回合最多操作 3 次，可以提前结束回合。敌方只在结束回合时行动。</li><li>清理后保留一项奖励，网页会永久改变。</li><li>试着用开关带动攻击，连锁不额外花操作点。</li></ol><p>护盾只保留到敌方行动结束。开关与模式跨层保留。刷新页面会开始新的一局。</p></details>
+        <details class="guide" open><summary>第一次来？从这里开始</summary><ol><li>算力回合结束清空；数据跨回合保留，进入新关卡清空。</li><li>每回合基础补给总量为 6，分配不同。下一次供给提前可见。</li><li>直达请求与防火墙可重复用；档案馆每回合转换一次。</li><li>调整模式、滑杆、开关免费。提交才执行；后台锈蚀下回合开始付费运行。</li><li>腐蚀先结算，敌方再反击。护盾之后，缓存替身才会消耗数据保命。</li></ol><p>奖励仍然免费三选一。没有材料或商店。刷新开始新的一局。</p></details>
       </aside>
     </div>
     <footer><span>THE WEBPAGE IS THE GAME.</span><span>原生元素 · 有限事件 · 无限可能</span><a href="README.md">设计手记 ↗</a></footer>
   </main>
-  <dialog id="restart-dialog"><form method="dialog"><span class="eyebrow">START A FRESH PAGE</span><h2>重新从一个按钮开始？</h2><p>当前构筑会被清空，生成一轮新的奖励。</p><div class="dialog-actions"><button value="cancel">继续这一局</button><button value="restart" class="primary">重新开始</button></div></form></dialog>
+  <dialog id="restart-dialog"><form method="dialog"><span class="eyebrow">START A FRESH PAGE</span><h2>重新搭建一台网页机器？</h2><p>当前构筑会被清空，生成一轮新的奖励。</p><div class="dialog-actions"><button value="cancel">继续这一局</button><button value="restart" class="primary">重新开始</button></div></form></dialog>
   <noscript>请启用 JavaScript，以游玩这个网页。</noscript>
 </body>
 </html>
